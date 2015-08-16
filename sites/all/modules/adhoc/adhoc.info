@@ -1,0 +1,4 @@
+name = Adhoc
+description = "Adhoc website module"
+core = 7.x
+files[] = adhoc.module
