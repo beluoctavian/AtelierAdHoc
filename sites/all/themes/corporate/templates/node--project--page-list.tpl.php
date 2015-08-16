@@ -75,7 +75,7 @@
  */
 ?>
 <?php if (!$page): ?>
-  <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix page-list-item"<?php print $attributes; ?>>
 <?php endif; ?>
   <div class="content"<?php print $content_attributes; ?>>
     <?php
@@ -84,9 +84,20 @@
       hide($content['links']);
     ?>
     <div class="cover">
-        <?php dpm($content); ?>
         <?php print render($content['field_cover_image']); ?>
-        <?php print render($content['title']); ?>
+        <?php print render($content['field_title']); ?>
+    </div>
+    <div class="hide-content">
+        <div class="bjqs-slider<?php print $content['field_cover_image']['#items']['0']['fid']; ?>">
+            <ul class="bjqs">
+                <?php foreach($content['field_images']['#items'] as $image): ?>
+                    <li><img src="<?php print file_create_url($image['uri']); ?>" /></li>
+                <?php endforeach; ?>
+                <li>
+                    <?php print render($content['body']); ?>
+                </li>
+            </ul>
+        </div>
     </div>
   </div>
 <?php if (!$page): ?>

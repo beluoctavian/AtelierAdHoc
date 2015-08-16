@@ -63,6 +63,11 @@
  * @see template_preprocess_page()
  * @see template_process()
  */
+
+$theme_path = drupal_get_path('module', 'adhoc');
+drupal_add_js($theme_path . '/bjqs.js');
+drupal_add_js($theme_path . '/corp.js');
+drupal_add_css($theme_path . '/bjqs.css');
 ?>
 <div id="wrapper">
   <div class="inwrap">
